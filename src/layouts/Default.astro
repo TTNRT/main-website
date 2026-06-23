@@ -57,7 +57,7 @@ body {
 </style>
 </noscript>
 </head>
-<body class="flex flex-col min-h-screen bg-black text-white">
+<body class="flex flex-col min-h-screen">
 {(import.meta.env.MODE === "development") &&
 <div class="*:border-0 *:rounded-none *:shadow-none">
 <Alert type="danger">
@@ -90,7 +90,7 @@ if (document !== undefined) {
             case 'interactive':
             case 'loading':
                 setTimeout(function() {
-                    document.querySelector(".pageloader")?.setAttribute('style', 'opacity: 0; visibility: hidden;')
+                    document.querySelector("#page_loader")?.setAttribute('style', 'opacity: 0; visibility: hidden;')
                 }, 500)
                 break
             default:

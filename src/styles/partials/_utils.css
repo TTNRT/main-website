@@ -2,22 +2,22 @@
     .grid {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 3px;
+        gap: 0.5em;
     }
     .grid-medium {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 3px;
+        gap: 0.5em;
     }
     .grid-small {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 3px;
+        gap: 0.5em;
     }
     .flex-items {
         display: flex;
         flex-direction: row;
-        gap: 0.25em;
+        gap: 0.5em;
     }
     .grid-list {
         display: flex;

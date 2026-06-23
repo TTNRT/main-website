@@ -50,12 +50,16 @@
         color: unset;
         text-decoration: none;
         transition: 0.3s;
-        &:hover {
-            color: var(--color-sky-400);
+        @variant dark {
+            &:hover {
+                color: var(--color-sky-500);
+            }
         }
-    }
-    a[aria-current=page] {
-        color: var(--color-sky-400);
+        @variant not-dark {
+            &:hover {
+                color: var(--color-sky-700);
+            }
+        }
     }
     section {
         text-align: unset;

@@ -1,0 +1,28 @@
+---
+const pathName = Astro.url.pathname
+const Items = [
+    {name: 'Partners',link: import.meta.env.SITE + "/#partners",},
+    {name: 'About us',link: import.meta.env.SITE + "/about"},
+    {name: 'Contact us',link: import.meta.env.SITE + "/contact-us"},
+    {name: 'Blog',link: import.meta.env.SITE + "/blog"}
+]
+---
+<header>
+<nav class="navbar bg-base-100 shadow-sm max-[1000px]:block pl-[10%] pr-[10%] max-[1000px]:pl-[0.5em] max-[1000px]:pr-[0.5em] flex flex-row justify-between">
+    <div class="flex flex-row">
+        <a href={`${import.meta.env.SITE}/`} class="flex flex-row content-center items-center flex-wrap max-[1000px]:w-full max-[1000px]:content-between ">
+            <img src={`${import.meta.env.SITE}/logos/ttnrtlogo_v3.png`} alt="Site logo" class="w-full h-full max-w-[40px] max-h-[40px] rounded-sm mr-[0.35em] block" />
+            <span>TTNRT Corporation</span>
+        </a>
+    </div>
+    <div class="flex-none max-[1000px]:flex max-[1000px]:items-baseline max-[1000px]:flex-col gap-0">
+        <ul class="menu menu-horizontal px-1 max-[1000px]:menu-vertical max-[1000px]:w-full">
+            {Items.flatMap((item => (
+                <li>
+                    <a href={item.link} aria-current={pathName === item.link ? 'page' : 'false'}>{item.name}</a>
+                </li>
+            )))}
+        </ul>
+    </div>
+</nav>
+</header>

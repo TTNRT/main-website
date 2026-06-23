@@ -1,0 +1,28 @@
+@layer components {
+    dialog {
+        background-color: var(--color-gray-800);
+        color: var(--color-white);
+        @apply ring-2 ring-blue-500;
+        padding: 0.75em;
+        border: 0;
+        border-radius: var(--radius-md);
+        margin: auto;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        & .dialog-head {
+            display: flex !important;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        & .dialog-body {
+            height: auto;
+            overflow: auto;
+        }
+    }
+    ::backdrop {
+        background-color: var(--color-black);
+        opacity: 0.75;
+    }
+}

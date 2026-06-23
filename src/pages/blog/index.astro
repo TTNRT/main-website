@@ -1,0 +1,21 @@
+---
+import Default from '../../layouts/Default.astro'
+import Card from '../../components/Card.astro';
+import { getCollection } from 'astro:content';
+
+const Blog_Posts = await getCollection('blog')
+
+---
+<Default title="Blog" description="Whatever we post, you can find it here." banner={true}>
+<div class="grid-small">
+{Blog_Posts.map((post) => (
+<Card title={post.data.title} icon={null} link={`/blog/posts/${post.id}`}>
+<ul class="list-none p-0">
+<li>About this post: {post.data.description}</li>
+<li>Publish date: {post.data.pubDate.toLocaleDateString()}</li>
+<li>Tags: {post.data.tags}</li>
+</ul>
+</Card>
+))}
+</div>
+</Default>

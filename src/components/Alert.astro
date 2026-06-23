@@ -1,0 +1,27 @@
+---
+let icon = ""
+interface Props {
+    type: "info" | "success" | "danger" | 'warning'
+}
+
+const {type} = Astro.props
+
+switch (type) {
+    case 'info':
+        icon = "fa6-solid--circle-info"
+        break
+    case 'success':
+        icon = "fa6-solid--circle-check"
+        break
+    case 'danger':
+        icon = "fa6-solid--circle-exclamation"
+        break
+    case 'warning':
+        icon = "fa6-solid--triangle-exclamation"
+        break
+}
+---
+<div role="alert" class={`alert alert-${type} text-base`}>
+<span aria-hidden="true" class={`iconify ${icon} h-6 w-6 shrink-0 stroke-current`}></span>
+<div class="*:mb-0"><slot /></div>
+</div>

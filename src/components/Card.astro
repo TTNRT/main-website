@@ -1,0 +1,32 @@
+---
+interface Props {
+    title: string | null;
+    icon: string | null
+    link: string | null
+}
+
+const { title, icon, link } = Astro.props;
+---
+{(link !== null) ?
+<a href={link} class="text-current transition-none no-underline cursor-pointer select-none">
+<div class="card card-dash bg-base-100 ring-1 ring-sky-500 transition duration-[0.3s] hover:ring-2 hover:ring-sky-300 rounded">
+<div class="card-body p-5 gap-0 h-full text-base">
+{icon ? <span aria-hidden="true" class={`iconify ${icon}`}></span> : null}
+{(title !== null) &&
+<h1 class="card-title mb-0">{title}</h1>
+}
+<slot />
+</div>
+</div>
+</a>
+:
+<div class="card card-dash bg-base-100 ring-1 ring-sky-500">
+<div class="card-body p-5 gap-0 h-full text-base">
+{icon ? <span aria-hidden="true" class={`iconify ${icon}`}></span> : null}
+{(title !== null) &&
+<h1 class="card-title mb-0">{title}</h1>
+}
+<slot />
+</div>
+</div>
+}

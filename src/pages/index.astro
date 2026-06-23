@@ -1,0 +1,61 @@
+---
+import {Services, Projects, Partners} from '../data/scripts/database'
+import Default from '../layouts/Default.astro'
+import Card from '../components/Card.astro'
+---
+<Default title="Home" description="Welcome home. This isn't your home. It's everyone's home." banner={true}>
+<section id="services">
+<h1>Our services</h1>
+<p>We provide many services. Here's a list of what we offer!</p>
+<div class="grid-small">
+{(Services.length > 0) ?
+    Services.flatMap((item) => (
+        <Card title={item.name} icon={item.icon} link={`${import.meta.env.SITE}/service/${item.slug}`}>
+            <p>{item.description}</p>
+        </Card>
+    ))
+:
+<p>Looks like this section is empty. Maybe we didn't add anything here? Who knows for sure.</p>
+}
+</div>
+</section>
+<section id="projects">
+<h1>Our sister projects</h1>
+<p>We provide a list of our open-source projects! Here's what we have to offer!</p>
+<div class="grid-small">
+{(Projects.length > 0) ?
+    Projects.flatMap((item) => (
+        <Card title={item.name} icon={item.icon} link={null}>
+            <p>{item.description}</p>
+        </Card>
+    ))
+:
+<p>Looks like this section is empty. Maybe we didn't add anything here? Who knows for sure.</p>
+}
+</div>
+</section>
+<section id="partners">
+<h1>Our partners</h1>
+<p>
+We love when we partner with other companies, especially when we do a contribution!
+<br />
+Here is our list of who we work with!
+</p>
+<div class="grid-small">
+{(Partners.length > 0) ?
+    Partners.flatMap((item) => (
+        <Card title={item.name} icon={null} link={item.website_link}>
+            <img src={item.logo} style="width: 128px;" alt="partner_logo" />
+            <p>Been a partner with TTNRT Corporation since {item.date_since} and still is today!</p>
+        </Card>
+    ))
+:
+<p>Looks like this section is empty. Maybe we didn't add anything here? Who knows for sure.</p>
+}
+</div>
+</section>
+<section id="interested-in-us">
+<h1>Interested in us?</h1>
+<p>Not a problem! Submit our contact form and we'll get everything sorted out for you!</p>
+</section>
+</Default>

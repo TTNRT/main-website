@@ -1,0 +1,48 @@
+@layer components {
+    .alert {
+        border: 0;
+        color: initial;
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-md);
+        padding: 0.5em;
+        display: flex;
+        flex-direction: row;
+        gap: 0.15em;
+        width: 100%;
+        & .title, .icon {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 0.15em;
+            font-size: var(--text-lg);
+        }
+        & .body * {
+            margin-bottom: 0;
+        }
+        &.info {
+            background-color: var(--primary);
+            color: var(--color-white);
+        }
+        &.success {
+            background-color: var(--success);
+            color: var(--color-white);
+        }
+        &.danger {
+            background-color: var(--danger);
+            color: var(--color-white);
+        }
+        &.warning {
+            background-color: var(--warning);
+            color: var(--color-black);
+        }
+    }
+    .expand-alert .alert {
+        border: 0;
+        border-radius: unset;
+        box-shadow: unset;
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: thin;
+        scrollbar-color: revert;
+    }
+}

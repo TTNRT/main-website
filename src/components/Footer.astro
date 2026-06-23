@@ -1,0 +1,28 @@
+---
+import {Socials, Links} from '../data/scripts/database'
+---
+<footer class="footer footer-horizontal footer-center bg-base-100 text-primary-content p-5 gap-2">
+    <aside>
+        <p>
+            &copy; TTNRT Corporation {new Date().getFullYear()}. All rights reserved.
+            <br />
+            Made with <span class="withlove iconify fa6-solid--heart text-base"></span> in Michigan.
+        </p>
+    </aside>
+    <nav>
+        <div class="flex grid-flow-col gap-4">
+            {Socials.map((item) => (
+                <div>
+                    <a class="text-xl" href={item.link} target="_blank" title={`${item.title}`} rel="me"><span class={`iconify ${item.icon}`}></span></a>
+                </div>
+            ))}
+        </div>
+        <div class="flex grid-flow-col gap-4">
+            {Links.map((item) => (
+                <div>
+                    <a role="button" rel="me" target="_blank" href={item.link}>{item.title}</a>
+                </div>
+            ))}
+        </div>
+    </nav>
+</footer>

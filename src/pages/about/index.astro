@@ -1,0 +1,42 @@
+---
+import Default from "../../layouts/Default.astro";
+import {LogoHistory} from "../../data/scripts/database";
+import Alert from "../../components/Alert.astro";
+import Card from "../../components/Card.astro";
+---
+<Default title="About us" description="You want to know who we are? Find out here!" banner={true}>
+<section class="text-left">
+<h2>Introduction</h2>
+<Alert type="info">
+<p>This section is under construction! Check back later when we update it!</p>
+</Alert>
+</section>
+<br />
+<section class="text-left">
+<h2>Company disclaimer</h2>
+<p>
+The TTNRT Corporation logo, along with <span class="fs-bold fs-italic">myTT</span> and the <span class="fs-bold fs-italic">The future is now</span> slogan are the trademarks of TTNRT Corporation.
+<br>
+Other things such as company names, logos and any other material that is mentioned on this website are the property of their respective owners. No copyright infringement should be intended when they are shown on our website!
+<br>
+</p>
+</section>
+<br />
+<section class="text-left">
+<h2>Logo evolution</h2>
+<p>The history of our somewhat interesting logo</p>
+<div class="grid-small">
+{LogoHistory.flatMap((item) => (
+<Card title={item.title} icon={null} link={null}>
+<h2>What it looks like</h2>
+<img src={item.image} style="width: 64px;" alt={`logo${item.id}`} />
+<h2>Timeline</h2>
+<ul class="list-none p-0">
+<li>Created since: {item.started_on}</li>
+<li>Been used until: {item.until_now}</li>
+</ul>
+</Card>
+))}
+</div>
+</section>
+</Default>

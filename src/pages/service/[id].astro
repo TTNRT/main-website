@@ -1,0 +1,45 @@
+---
+import Default from "../../layouts/Default.astro";
+import Alert from "../../components/Alert.astro";
+import Card from "../../components/Card.astro";
+import {Services} from "../../data/scripts/database";
+
+//const get_service = Services.find(item => item.id === Number(service_id))
+export async function getStaticPaths() {
+    return Services.map(service => ({
+        params: {id: String(service.slug)},
+        props: {service}
+    }))
+}
+
+const {service} = Astro.props
+---
+<Default title={service.name} description={service.description} banner={true}>
+{service.alert !== null &&
+<Alert type="info">{service.alert}</Alert>
+}
+{service.sections.map((section) => (
+<section>
+<h2>{section.title}</h2>
+<p>{section.content}</p>
+<div class="grid-small">
+{section.cards.map((prop) => (
+<Card title={prop.title} icon={prop.icon} link={null}>{prop.content}</Card>
+))}
+</div>
+</section>
+))}
+
+<section>
+<h2>Links</h2>
+{(service.links.length > 0) ?
+<div class="grid-small">
+{service.links.map((prop) => (
+<Card title={prop.title} icon={prop.icon} link={prop.url || null}>{prop.content}</Card>
+))}
+</div>
+:
+<p>Looks like this section is empty. Maybe we didn't add anything here? Who knows for sure.</p>
+}
+</section>
+</Default>

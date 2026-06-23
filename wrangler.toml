@@ -1,0 +1,15 @@
+name = "main-website"
+compatibility_date = "2026-06-23"
+preview_urls = false
+routes = [
+    {pattern = "ttnrtsite.me", custom_domain = true},
+    {pattern = "www.ttnrtsite.me", custom_domain = true},
+    {pattern = "backup.ttnrtsite.me", custom_domain = true}
+]
+compatibility_flags = [
+    "global_fetch_strictly_public",
+    "nodejs_compat"
+]
+
+[assets]
+directory = "./dist"

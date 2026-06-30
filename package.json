@@ -29,7 +29,7 @@
     "esbuild": "^0.28.1"
   },
   "devDependencies": {
-    "@types/node": "^26.0.0",
+    "@types/node": "^26.0.1",
     "daisyui": "^5.5.23"
   },
   "allowScripts": {

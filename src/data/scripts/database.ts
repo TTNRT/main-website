@@ -38,7 +38,7 @@ export const Socials: Link_groups[] = [
         name: "bluesky",
         title: "BlueSky",
         icon: "simple-icons--bluesky",
-        link: "https://bsky.app/profile/ttnrt.bsky.social"
+        link: "https://bsky.app/profile/ttnrtsite.me"
     },
     {
         name: "huggingface",
@@ -82,12 +82,6 @@ export const Links: Link_groups[] = [
         title: "Documentation",
         icon: null,
         link: "https://docs.ttnrtsite.me"
-    },
-    {
-        name: "service-statistics",
-        title: "Service Statistics",
-        icon: null,
-        link: "https://status.ttnrtsite.me/"
     }
 ]
 export const Services: Service_groups[] = [

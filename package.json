@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@types/node": "^26.1.0",
-    "daisyui": "^5.6.14"
+    "daisyui": "^5.6.18"
   },
   "allowScripts": {
     "esbuild@0.28.1": true,

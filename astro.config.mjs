@@ -22,7 +22,7 @@ export default defineConfig({
     syntaxHighlight: 'prism'
   },
   devToolbar: {
-    enabled: false
+    enabled: true
   },
   security: {
     checkOrigin: false

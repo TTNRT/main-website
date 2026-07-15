@@ -1,0 +1,51 @@
+---
+interface Props {
+    title: string
+    description: string
+}
+const { title, description } = Astro.props;
+---
+<head>
+<title>{title}</title>
+<meta name="og:title" content={title}>
+<meta name="og:site_name" content="TTNRT Corporation">
+<meta name="og:description" content={description}>
+<meta name="og:author" content="TTNRT Corporation">
+<meta name="og:keywords" content="website, TTNRT, software, TTNRT Corporation, new, technology, tech">
+<meta name="og:url" content={`${import.meta.env.SITE}${Astro.url.pathname}`}>
+<meta property="og:type" content="website">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/x-icon" href="/logos/ttnrtlogo_v3.png">
+<link rel="stylesheet" href="https://api.iconify.design/fa6-brands.css?pseudoSelector=true&color=currentColor&mode=mask&forceSquare=false&iconSelector=.iconify.{prefix}--{name}&icons=git,html5">
+<link rel="stylesheet" href="https://api.iconify.design/fa6-solid.css?pseudoSelector=true&color=currentColor&mode=mask&forceSquare=false&iconSelector=.iconify.{prefix}--{name}&icons=square-rss,cloud,heart,circle-info,circle-check,circle-exclamation,triangle-exclamation,hands-clapping,circle-user,shield-halved,arrow-pointer,xmark,circle-xmark">
+<link rel="stylesheet" href="https://api.iconify.design/simple-icons.css?pseudoSelector=true&color=currentColor&mode=mask&forceSquare=false&iconSelector=.iconify.{prefix}--{name}&icons=discord,github,reddit,gitea,bluesky,huggingface,astro,openid,mastodon">
+<noscript>
+<style>
+body {
+    overflow: hidden;
+    user-select: none;
+    cursor: not-allowed;
+}
+.pageloader {
+    display: none;
+}
+.script-warning {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: black;
+    z-index: 9;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+</style>
+</noscript>
+</head>

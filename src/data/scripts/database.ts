@@ -1,4 +1,4 @@
-import type { Partner_groups, Link_groups, Logo_groups, Service_groups, Alert_Type, Link_Data } from "./types"
+import type { Partner_groups, Link_groups, Logo_groups, Service_groups, Alert_Type, Link_Data, Icon_Stylesheets } from "./types"
 
 export const Partners: Partner_groups[] = [
     {
@@ -170,7 +170,87 @@ export const Services: Service_groups[] = [
         ]
     }
 ]
-export const Projects: Service_groups[] = []
+export const Projects: Service_groups[] = [
+    {
+        id: 1,
+        slug: "docswebsite",
+        name: "Documentation Website",
+        description: "Our documentation website that has all of the information that you need to know!",
+        icon: "fa6-solid--book",
+        alert: null,
+        sections: [
+            {
+                title: "How it works",
+                content: "Ever wonder how our documentation website works? Let us explain that for you!",
+                cards: [
+                    {
+                        title: "Uses the AstroJS framework and the Starlight theme",
+                        content: "We prefer to use this framework more then anything! It's the perfect website framework that you would want for making content-driven websites!",
+                        icon: "simple-icons--astro"
+                    },
+                    {
+                        title: "Everything you need is all on it!",
+                        content: "All of the information that you might need to know is all on the website!",
+                        icon: "fa6-solid--circle-check"
+                    },
+                    {
+                        title: "Fully Open-Source",
+                        content: "Our documentation website is available for you to view on our GitHub organization page, meaning that you can view the source code of the entire website for free!",
+                        icon: "simple-icons--github"
+                    }
+                ]
+            }
+        ],
+        links: [
+            {
+                title: "View the website",
+                content: "Click here if you want to check out the website and see how it works! Let us know on what you think or like about it!",
+                icon: "fa6-solid--arrow-pointer",
+                url: "https://docs.ttnrtsite.me"
+            },
+            {
+                title: "View the source code",
+                content: "Click here if you want to check out the source code and see how it works! Let us know on what you think or like about it!",
+                icon: "simple-icons--github",
+                url: "https://github.com/TTNRT/docswebsite"
+            }
+        ]
+    },
+    {
+        id: 2,
+        slug: "ai-model",
+        name: "Assist AI Gemma Model",
+        description: "Our custom-made Gemma model that has the power to run on any machine that you can think of!",
+        icon: "fa6-solid--robot",
+        alert: "Currently, our AI model is in it's early stages, meaning that some features will be either broken or not available at all! Please help us out in making it work well by going to the Huggingface repository for that!",
+        sections: [
+            {
+                title: "How it works",
+                content: "Ever wonder how our Assist AI Gemma Model works? Let us explain that for you!",
+                cards: [
+                    {
+                        title: "Uses the Gemma 3 AI Model as it's main component",
+                        content: "Gemma 3 is the fastest AI model that Google has made for their Gemma AI lineup, and has the power to do any tasks that you want it to do for you!",
+                        icon: "simple-icons--googlegemini"
+                    },
+                    {
+                        title: "Fully Open-Source",
+                        content: "Our Gemma 3 AI Model is available for you to view on our Huggingface organization page, meaning that you can view the source code of the entire model for free!",
+                        icon: "simple-icons--huggingface"
+                    }
+                ]
+            }
+        ],
+        links: [
+            {
+                title: "View the source code",
+                content: "Click here if you want to check out the source code and see how it works! Let us know on what you think or like about it!",
+                icon: "simple-icons--huggingface",
+                url: "https://huggingface.co/ttnrt/assistai-gemni-small"
+            }
+        ]
+    }
+]
 export const AlertList: Alert_Type[] = []
 export const Allowed_Websites: Link_Data[] = [
     "ttnrtsite.me",
@@ -181,4 +261,18 @@ export const Allowed_Websites: Link_Data[] = [
     "status.ttnrtsite.me",
     "docs.ttnrtsite.me",
     "localhost"
+]
+export const Website_Icons: Icon_Stylesheets[] = [
+    {
+        name: "fa6-brands",
+        data: ["git", "html5"]
+    },
+    {
+        name: "fa6-solid",
+        data: ["square-rss", "cloud,heart", "circle-info", "circle-check", "circle-exclamation", "triangle-exclamation", "hands-clapping", "circle-user", "shield-halved","arrow-pointer", "xmark", "circle-xmark", "book", "robot"]
+    },
+    {
+        name: "simple-icons",
+        data: ["discord", "github", "reddit", "gitea", "bluesky", "huggingface", "astro", "openid", "mastodon", "googlegemini"]
+    }
 ]

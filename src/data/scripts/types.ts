@@ -49,3 +49,7 @@ export interface Alert_Type {
 export interface Link_Data {
     [index: number]: string
 }
+export interface Icon_Stylesheets {
+    name: string
+    data: string[]
+}

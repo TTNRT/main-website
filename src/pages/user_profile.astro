@@ -1,0 +1,76 @@
+---
+import Default from "../layouts/Default.astro";
+import Card from "../components/Card.astro";
+---
+<Default title="null's profile" description="Profile information for null" banner={false}>
+<Card title={null} icon={null} link={null}>
+<div id="user_data">
+
+</div>
+</Card>
+<script>
+import { Fetch } from "../data/scripts/helpers";
+import type { UserProfile_Data } from "../data/scripts/types";
+const createProfileCard = function(data: UserProfile_Data) {
+    const cardElement = document.querySelector<HTMLDivElement>('#user_data')!
+    cardElement.innerHTML =
+    `
+    <section class="user_overview">
+    <img src="${data.profile.gravatar_uri}" title="Default profile picture" alt="Default profile picture" />
+    <div id="user">
+    <div>
+    <h1 class="mb-0">${data.full_name} (${data.username})</h1>
+    <span class="text-xm ">Creation date: <time datetime="${data.created_since}" id="creation_date"></time></span>
+    ${data.roles !== null && `
+    <div class="roles">${data.roles.flatMap((role) => `<span class="badge badge-primary">${role}</span>`).join('')}</div>
+    `}
+    </div>
+    </div>
+    </section>
+    <section>
+    <h2>User biography</h2>
+    <div>${data.profile.about_me_html}</div>
+    </section>
+    `
+    const creation_dateEl = cardElement.querySelector<HTMLTimeElement>('#creation_date')!
+    const converted_datetime = new Date(creation_dateEl.dateTime).toString()
+    creation_dateEl.innerText = converted_datetime
+    creation_dateEl.title = creation_dateEl.dateTime
+    document.title = `${data.username}'s profile`
+    document.querySelector('meta[name="og:description"]')?.setAttribute("content", `Profile information for ${data.username}`)
+    document.querySelector('meta[name="og:title"]')?.setAttribute("content", `${data.username}'s profile`)
+    return true
+}
+document.addEventListener('DOMContentLoaded', function(event) {
+    const cardElement = document.querySelector<HTMLDivElement>('#user_data')!
+    const search_params = new URLSearchParams(this.location.search)
+    const user_id = search_params.get("id")
+    if (user_id === null) {
+        document.title = "Something went wrong!"
+        document.querySelector('meta[name="og:description"]')?.setAttribute("content", `An error has occurred while trying to validate your request!`)
+        document.querySelector('meta[name="og:title"]')?.setAttribute("content", `Something went wrong!`)
+        cardElement.innerHTML = "You need to input a valid user ID parameter before you can use this route!"
+        console.error("You need to input a valid user ID parameter before you can use this route!")
+    } else if (user_id === "") {
+        document.title = "Something went wrong!"
+        document.querySelector('meta[name="og:description"]')?.setAttribute("content", `An error has occurred while trying to validate your request!`)
+        document.querySelector('meta[name="og:title"]')?.setAttribute("content", `Something went wrong!`)
+        cardElement.innerHTML = "You need to input a valid user ID parameter before you can use this route!"
+        console.error("You need to input a valid user ID parameter before you can use this route!")
+    } else {
+        Fetch.UserProfile(user_id).then(function(response) {
+            if (response instanceof Error) {
+                document.title = "Something went wrong!"
+                document.querySelector('meta[name="og:description"]')?.setAttribute("content", `An error has occurred while trying to validate your request!`)
+                document.querySelector('meta[name="og:title"]')?.setAttribute("content", `Something went wrong!`)
+                cardElement.innerHTML = response.message
+                console.error(response.message)
+            } else {
+                createProfileCard(response)
+                console.log(response)
+            }
+        })
+    }
+})
+</script>
+</Default>

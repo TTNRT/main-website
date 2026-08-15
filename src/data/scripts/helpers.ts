@@ -1,3 +1,4 @@
+import type {UserProfile_Data} from './types'
 export class Control {
     static preventScroll() {
         const bodyEl = document.body
@@ -39,6 +40,29 @@ export class Create {
             })
         }
     }
+    static ErrorMessage(content: string, target: Element) {
+        const textElement = document.createElement("p")
+        textElement.setAttribute("class", "")
+    }
 }
 export class Other {
+}
+export class Fetch {
+    static async UserProfile(user_id: string | number) {
+        try {
+            const request = await fetch("https://my.ttnrtsite.me/user_profile?id=" + user_id, {
+                method: "GET"
+            })
+            if (!request.ok) {
+                const response_error = await request.json()
+                throw new Error(response_error.message || "Server didn't respond correctly! Try again later!")
+            }
+            const response = await request.json()
+            return <UserProfile_Data>response
+        } catch(error) {
+            const errorMsg = error instanceof Error ? error.message : "Something went wrong! Cannot continue!"
+            console.error(errorMsg)
+            return Error(errorMsg)
+        }
+    }
 }

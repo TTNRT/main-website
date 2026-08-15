@@ -10,7 +10,7 @@ import Card from '../components/Card.astro'
 <div class="grid-small">
 {(Services.length > 0) ?
     Services.flatMap((item) => (
-        <Card title={item.name} icon={item.icon} link={`${import.meta.env.SITE}/service/${item.slug}`}>
+        <Card title={item.name} icon={item.icon} link={`/service/${item.slug}`}>
             <p>{item.description}</p>
         </Card>
     ))
@@ -25,7 +25,7 @@ import Card from '../components/Card.astro'
 <div class="grid-small">
 {(Projects.length > 0) ?
     Projects.flatMap((item) => (
-        <Card title={item.name} icon={item.icon} link={`${import.meta.env.SITE}/projects/${item.slug}`}>
+        <Card title={item.name} icon={item.icon} link={`/projects/${item.slug}`}>
             <p>{item.description}</p>
         </Card>
     ))

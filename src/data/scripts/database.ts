@@ -6,7 +6,7 @@ export const Partners: Partner_groups[] = [
         name: "Aclevo",
         date_since: new Date('2024-04-19').toLocaleDateString(),
         website_link: "https://aclevo.com/",
-        logo: import.meta.env.SITE + "/partners/aclevo_current.png"
+        logo: "/partners/aclevo_current.png"
     }
 ]
 export const Socials: Link_groups[] = [
@@ -52,26 +52,32 @@ export const Socials: Link_groups[] = [
         icon: "simple-icons--mastodon",
         link: "https://mastodon.social/@ttnrt_corporation"
     },
+    {
+        name: "email",
+        title: "Email us",
+        icon: "fa6-solid--envelope",
+        link: "mailto:support@ttnrtsite.me"
+    }
 ]
 export const LogoHistory: Logo_groups[] = [
     {
         id: 1,
         title: "Our current logo",
-        image: import.meta.env.SITE + "/logos/ttnrtlogo_v3.png",
+        image: "/logos/ttnrtlogo_v3.png",
         started_on: 2025,
         until_now: "now"
     },
     {
         id: 2,
         title: "Our previous logo for 2023",
-        image: import.meta.env.SITE + "/logos/ttnrtlogo_v2.png",
+        image: "/logos/ttnrtlogo_v2.png",
         started_on: 2023,
         until_now: 2025
     },
     {
         id: 3,
         title: "Our first ever logo during our company's formation",
-        image: import.meta.env.SITE + "/logos/ttnrtlogo_v1.png",
+        image: "/logos/ttnrtlogo_v1.png",
         started_on: 2022,
         until_now: 2023
     }
@@ -269,7 +275,7 @@ export const Website_Icons: Icon_Stylesheets[] = [
     },
     {
         name: "fa6-solid",
-        data: ["square-rss", "cloud,heart", "circle-info", "circle-check", "circle-exclamation", "triangle-exclamation", "hands-clapping", "circle-user", "shield-halved","arrow-pointer", "xmark", "circle-xmark", "book", "robot"]
+        data: ["square-rss", "cloud,heart", "circle-info", "circle-check", "circle-exclamation", "triangle-exclamation", "hands-clapping", "circle-user", "shield-halved","arrow-pointer", "xmark", "circle-xmark", "book", "robot", "envelope"]
     },
     {
         name: "simple-icons",

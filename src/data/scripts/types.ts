@@ -53,3 +53,31 @@ export interface Icon_Stylesheets {
     name: string
     data: string[]
 }
+export interface UserProfile_Data {
+    id: number | null
+    username: string | null
+    full_name: string | null
+    roles: string[] | null
+    profile: {
+        about_me_markdown: string | null
+        about_me_html: string | null
+        color_banner: string | null,
+        private: boolean
+        gravatar_uri: string | null
+    }
+    created_since: string | null
+}
+export interface UserProfile_Data {
+    id: number | null
+    username: string | null
+    full_name: string | null
+    roles: string[] | null
+    profile: {
+        about_me_markdown: string | null
+        about_me_html: string | null
+        color_banner: string | null,
+        private: boolean
+        gravatar_uri: string | null
+    }
+    created_since: string | null
+}

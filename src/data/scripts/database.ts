@@ -53,6 +53,12 @@ export const Socials: Link_groups[] = [
         link: "https://mastodon.social/@ttnrt_corporation"
     },
     {
+        name: "liberapay",
+        title: "Liberapay",
+        icon: "simple-icons--liberapay",
+        link: "https://liberapay.com/ttnrtcorp/donate"
+    },
+    {
         name: "email",
         title: "Email us",
         icon: "fa6-solid--envelope",
@@ -279,6 +285,6 @@ export const Website_Icons: Icon_Stylesheets[] = [
     },
     {
         name: "simple-icons",
-        data: ["discord", "github", "reddit", "gitea", "bluesky", "huggingface", "astro", "openid", "mastodon", "googlegemini"]
+        data: ["discord", "github", "reddit", "gitea", "bluesky", "huggingface", "astro", "openid", "mastodon", "googlegemini", "liberapay"]
     }
 ]

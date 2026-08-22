@@ -272,6 +272,7 @@ export const Allowed_Websites: Link_Data[] = [
     "git.ttnrtsite.me",
     "status.ttnrtsite.me",
     "docs.ttnrtsite.me",
+    "pay.ttnrtsite.me",
     "localhost"
 ]
 export const Website_Icons: Icon_Stylesheets[] = [

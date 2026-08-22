@@ -46,6 +46,9 @@
     h1,h2,h3,h4,h5,p {
         margin-bottom: 0.25em;
     }
+    article a {
+        text-decoration: underline;
+    }
     a {
         color: unset;
         text-decoration: none;
@@ -218,34 +221,27 @@
 
 @layer components {
     .alert.alert-error, .alert.alert-danger {
-        color: var(--color-error-content);
+        --color-base-content: var(--color-error-content);
         --alert-border-color: var(--color-error);
-        --alert-color: var(--color-red-600);
+        --alert-color: var(--color-error);
     }
     .alert.alert-info {
-        color: var(--color-info-content);
+        --color-base-content: var(--color-info-content);
         --alert-border-color: var(--color-info);
-        --alert-color: var(--color-sky-600);
+        --alert-color: var(--color-info);
     }
     .alert.alert-success {
-        color: var(--color-success-content);
+        --color-base-content: var(--color-success-content);
         --alert-border-color: var(--color-success);
-        --alert-color: var(--color-green-600);
+        --alert-color: var(--color-success);
     }
     .alert.alert-warning {
-        color: var(--color-warning-content);
+        --color-base-content: var(--color-warning-content);
         --alert-border-color: var(--color-warning);
-        --alert-color: var(--color-yellow-600);
+        --alert-color: var(--color-warning);
     }
 }
 
 /* Style partials */
 @import './partials/_utils.css';
 @import './partials/_extra.css';
-
-/* @import './partials/_alert.css';
-@import './partials/_button.css';
-@import './partials/_card.css';
-@import './partials/_dialog.css';
-@import './partials/_form.css';
-@import './partials/_navbar.css'; */

@@ -94,6 +94,12 @@ export const Links: Link_groups[] = [
         title: "Documentation",
         icon: null,
         link: "https://docs.ttnrtsite.me"
+    },
+    {
+        name: "service_status",
+        title: "Service Statistics",
+        icon: null,
+        link: "https://status.ttnrtsite.me"
     }
 ]
 export const Services: Service_groups[] = [

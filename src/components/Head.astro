@@ -1,52 +1,57 @@
 ---
-import {Website_Icons} from '../data/scripts/database'
+import {Website_Icons} from "../data/scripts/database"
+import Logo from "../data/images/logos/ttnrtlogo_v3.png"
 interface Props {
-    title: string
-    description: string
+  title: string
+  description: string
 }
-const { title, description } = Astro.props;
+const {title, description} = Astro.props
 ---
+
 <head>
-<title>{title}</title>
-<meta name="og:title" content={title} />
-<meta name="og:site_name" content="TTNRT Corporation" />
-<meta name="og:description" content={description} />
-<meta name="og:author" content="TTNRT Corporation" />
-<meta name="og:keywords" content="website, TTNRT, software, TTNRT Corporation, new, technology, tech" />
-<meta name="og:url" content={`${import.meta.env.SITE}${Astro.url.pathname}`} />
-<meta property="og:type" content="website" />
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" type="image/x-icon" href="/logos/ttnrtlogo_v3.png" />
-{Website_Icons.flatMap((icon) => (
-<link rel="stylesheet" href={`https://api.iconify.design/${icon.name}.css?pseudoSelector=true&color=currentColor&mode=mask&forceSquare=false&iconSelector=.iconify.{prefix}--{name}&icons=${icon.data.toString()}`} />
-))}
-<noscript>
-<style>
-body {
-    overflow: hidden;
-    user-select: none;
-    cursor: not-allowed;
-}
-.pageloader {
-    display: none;
-}
-.script-warning {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background-color: black;
-    z-index: 9;
-    width: 100%;
-    text-align: center;
-    color: white;
-}
-</style>
-</noscript>
+  <title>{title}</title>
+  <meta name="og:title" content={title} />
+  <meta name="og:site_name" content="TTNRT Corporation" />
+  <meta name="og:description" content={description} />
+  <meta name="og:author" content="TTNRT Corporation" />
+  <meta name="og:keywords" content="website, TTNRT, software, TTNRT Corporation, new, technology, tech" />
+  <meta name="og:url" content={`${import.meta.env.SITE}${Astro.url.pathname}`} />
+  <meta property="og:type" content="website" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href={Logo.src} />
+  {Website_Icons.flatMap((icon) => (
+    <link
+      rel="stylesheet"
+      href={`https://api.iconify.design/${icon.name}.css?pseudoSelector=true&color=currentColor&mode=mask&forceSquare=false&iconSelector=.iconify.{prefix}--{name}&icons=${icon.data.toString()}`}
+    />
+  ))}
+  <noscript>
+    <style>
+      body {
+        overflow: hidden;
+        user-select: none;
+        cursor: not-allowed;
+      }
+      .pageloader {
+        display: none;
+      }
+      .script-warning {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: black;
+        z-index: 9;
+        width: 100%;
+        text-align: center;
+        color: white;
+      }
+    </style>
+  </noscript>
 </head>

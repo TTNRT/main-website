@@ -1,25 +1,23 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
-import tailwindcss from "@tailwindcss/vite";
-import mdx from '@astrojs/mdx';
-import { loadEnv } from 'vite';
+import {defineConfig} from "astro/config"
+import tailwindcss from "@tailwindcss/vite"
+import mdx from "@astrojs/mdx"
+import {loadEnv} from "vite"
 
-const {PORT} = loadEnv('', process.cwd(), '')
+const {PORT} = loadEnv("", process.cwd(), "")
 
 export default defineConfig({
-  site: import.meta.env.PROD ? 'https://ttnrtsite.me' : `http://localhost:${Number(PORT) || 8000}`,
+  site: import.meta.env.PROD ? "https://ttnrtsite.me" : `http://localhost:${Number(PORT) || 8000}`,
   server: {
     port: Number(PORT) || 8000,
     host: true
   },
-  output: 'static',
-  trailingSlash: 'never',
+  output: "static",
+  trailingSlash: "never",
   compressHTML: false,
-  integrations: [
-    mdx({}),
-  ],
+  integrations: [mdx({})],
   markdown: {
-    syntaxHighlight: 'prism'
+    syntaxHighlight: "prism"
   },
   devToolbar: {
     enabled: true
@@ -28,7 +26,7 @@ export default defineConfig({
     checkOrigin: false
   },
   build: {
-    format: 'file'
+    format: "file"
   },
   vite: {
     plugins: [
@@ -36,4 +34,4 @@ export default defineConfig({
       tailwindcss()
     ]
   }
-});
+})

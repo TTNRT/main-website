@@ -1,69 +1,71 @@
 ---
 interface Props {
-    title: string
-    description: string
-    banner: boolean
+  title: string
+  description: string
+  banner: boolean
 }
-const { title, description, banner } = Astro.props;
-import Navbar from '../components/Navbar.astro'
-import Footer from '../components/Footer.astro'
-import Head from '../components/Head.astro'
-import Pageloader from '../components/Pageloader.astro'
-import Alert from '../components/Alert.astro';
-import '../styles/app.css'
+const {title, description, banner} = Astro.props
+import Navbar from "../components/Navbar.astro"
+import Footer from "../components/Footer.astro"
+import Head from "../components/Head.astro"
+import Pageloader from "../components/Pageloader.astro"
+import Alert from "../components/Alert.astro"
+import Section from "../components/Section.astro"
+import "../styles/app.css"
 ---
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en" class="scrollbar-thin scrollbar-thumb-blue-600 max-h scroll-smooth">
-<Head title={title} description={description} />
-<body class="flex flex-col min-h-screen">
-{(import.meta.env.MODE === "development") &&
-<div class="*:border-0 *:rounded-none *:shadow-none">
-<Alert type="danger">
-<p>You are running this website in Development mode. Things might be buggy here. Be careful!</p>
-</Alert>
-</div>
-}
-<noscript><div class="script-warning">This website requires you have to have javaScript enabled on your browser!</div></noscript>
-<Pageloader />
-<Navbar />
-<main class="grow pr-[0.65em] pl-[0.65em] mb-[0.65em] mt-[0.65em]">
+  <Head title={title} description={description} />
+  <body class="flex flex-col min-h-screen">
+    {import.meta.env.MODE === "development" && (
+      <div class="*:border-0 *:rounded-none *:shadow-none">
+        <Alert type="danger">
+          <p>You are running this website in Development mode. Things might be buggy here. Be careful!</p>
+        </Alert>
+      </div>
+    )}
+    <noscript>
+      <div class="script-warning">This website requires you have to have javaScript enabled on your browser!</div>
+    </noscript>
+    <Pageloader />
+    <Navbar />
+    <main class="grow pr-[0.65em] pl-[0.65em]">
+      {banner === true && (
+        <Section>
+          <h1>{title}</h1>
+          <p>{description}</p>
+        </Section>
+      )}
 
-{(banner === true) &&
-<section>
-<h1>{title}</h1>
-<p>{description}</p>
-</section>
-}
-
-<slot />
-</main>
-<Footer />
-<script>
-import { Allowed_Websites } from "../data/scripts/database"
-import { Create, Control } from "../data/scripts/helpers"
-if (document !== undefined) {
-    document.addEventListener('DOMContentLoaded', function() {
-        switch (document.readyState) {
-            case 'complete':
-            case 'interactive':
-            case 'loading':
-                setTimeout(function() {
-                    document.querySelector("#page_loader")?.setAttribute('style', 'opacity: 0; visibility: hidden;')
-                }, 500)
-                break
+      <slot />
+    </main>
+    <Footer />
+    <script>
+      import {Allowed_Websites} from "../data/scripts/database"
+      import {Create, Control} from "../data/scripts/helpers"
+      if (document !== undefined) {
+        document.addEventListener("DOMContentLoaded", function () {
+          switch (document.readyState) {
+            case "complete":
+            case "interactive":
+            case "loading":
+              setTimeout(function () {
+                document.querySelector("#page_loader")?.setAttribute("style", "opacity: 0; visibility: hidden;")
+              }, 500)
+              break
             default:
-                console.error("Failed to load the page! Sorry about that!")
-                break
-        }
-        document.querySelectorAll('a').forEach(function(link) {
-            link.addEventListener('click', function(event) {
-                const url_name = this.hostname
-                if (url_name && !Allowed_Websites.includes(url_name)) {
-                    const full_link = link.getAttribute('href')?.toString()
-                    const element_id = "#exit_warning"
-                    const dialog_element = document.getElementById(element_id)
-                    const confirmMsg = 
-                    `
+              console.error("Failed to load the page! Sorry about that!")
+              break
+          }
+          document.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", function (event) {
+              const url_name = this.hostname
+              if (url_name && !Allowed_Websites.includes(url_name)) {
+                const full_link = link.getAttribute("href")?.toString()
+                const element_id = "#exit_warning"
+                const dialog_element = document.getElementById(element_id)
+                const confirmMsg = `
                     <p class="text-base/loose">
                     You are about to leave to an external link that we do not have any control over! You will be taken the following website or link below after you proceed with this warning!
                     <br />
@@ -79,25 +81,24 @@ if (document !== undefined) {
                     </form>
                     </div>
                     `
-                    Create.Dialog(element_id, "External Website Warning", confirmMsg)
-                    document.querySelector<HTMLButtonElement>(dialog_element + ", #allow_site")?.addEventListener('click', function(event2) {
-                        window.open(full_link, "_blank")
-                        document.getElementById(element_id)?.remove()
-                        Control.allowScroll()
-                    })
-                    document.querySelector<HTMLButtonElement>(dialog_element + ", #return_site")?.addEventListener('click', function(event3) {
-                        document.getElementById(element_id)?.remove()
-                        Control.allowScroll()
-                    })
-                    event.preventDefault()
-                }
+                Create.Dialog(element_id, "External Website Warning", confirmMsg)
+                document.querySelector<HTMLButtonElement>(dialog_element + ", #allow_site")?.addEventListener("click", function (event2) {
+                  window.open(full_link, "_blank")
+                  document.getElementById(element_id)?.remove()
+                  Control.allowScroll()
+                })
+                document.querySelector<HTMLButtonElement>(dialog_element + ", #return_site")?.addEventListener("click", function (event3) {
+                  document.getElementById(element_id)?.remove()
+                  Control.allowScroll()
+                })
+                event.preventDefault()
+              }
             })
+          })
         })
-    })
-} else {
-    console.error("Something went wrong while trying to load the page! Sorry about that!")
-}
-
-</script>
-</body>
+      } else {
+        console.error("Something went wrong while trying to load the page! Sorry about that!")
+      }
+    </script>
+  </body>
 </html>

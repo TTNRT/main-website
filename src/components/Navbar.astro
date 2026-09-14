@@ -1,27 +1,30 @@
 ---
+import {Image} from "astro:assets"
 const pathName = Astro.url.pathname
 const Items = [
-    {name: 'Partners',link: "/#partners",},
-    {name: 'About us',link: "/about"},
-    {name: 'Blog',link: "/blog"}
+  {name: "About us", link: "/about"},
+  {name: "Blog", link: "/blog"}
 ]
 ---
-<header>
-<nav class="navbar bg-base-300 shadow-sm max-[1000px]:block pl-[10%] pr-[10%] max-[1000px]:pl-[0.5em] max-[1000px]:pr-[0.5em] flex flex-row justify-between">
+
+<header class="pr-[0.65em] pl-[0.65em] mb-[0.65em] mt-[0.65em]">
+  <nav class="navbar bg-base-300 shadow-sm max-[1000px]:block pl-[10%] pr-[10%] max-[1000px]:pl-[0.5em] max-[1000px]:pr-[0.5em] flex flex-row justify-between rounded-md">
     <div class="flex flex-row">
-        <a href="/" class="flex flex-row content-center items-center flex-wrap max-[1000px]:w-full max-[1000px]:content-between ">
-            <img src="/logos/ttnrtlogo_v3.png" alt="Site logo" class="w-full h-full max-w-[40px] max-h-[40px] rounded-sm mr-[0.35em] block" />
-            <span>TTNRT Corporation</span>
-        </a>
+      <a href="/" class="flex flex-row content-center items-center flex-wrap max-[1000px]:w-full max-[1000px]:content-between">
+        <Image src={import("../data/images/logos/ttnrtlogo_v3.png")} alt="Site logo" class="w-full h-full max-w-[40px] max-h-[40px] rounded-sm mr-[0.35em] block" />
+        <span>TTNRT Corporation</span>
+      </a>
     </div>
     <div class="flex-none max-[1000px]:flex max-[1000px]:items-baseline max-[1000px]:flex-col gap-0">
-        <ul class="menu menu-horizontal px-1 max-[1000px]:menu-vertical max-[1000px]:w-full">
-            {Items.flatMap((item => (
-                <li>
-                    <a href={item.link} aria-current={pathName === item.link ? 'page' : 'false'}>{item.name}</a>
-                </li>
-            )))}
-        </ul>
+      <ul class="menu menu-horizontal px-1 max-[1000px]:menu-vertical max-[1000px]:w-full">
+        {Items.flatMap((item) => (
+          <li>
+            <a href={item.link} aria-current={pathName === item.link ? "page" : "false"}>
+              {item.name}
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
-</nav>
+  </nav>
 </header>

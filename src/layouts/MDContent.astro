@@ -1,13 +1,14 @@
 ---
 const {frontmatter} = Astro.props
 import Default from "./Default.astro"
+import Section from "../components/Section.astro"
 import Card from "../components/Card.astro"
 ---
-<Default title={frontmatter.title} description={frontmatter.description} banner={false}>
-<h1>{frontmatter.title}</h1>
-<Card title={null} icon={null} link={null}>
-<article>
-<slot />
-</article>
-</Card>
+
+<Default title={frontmatter.title} description={frontmatter.description} banner={true}>
+  <Section>
+    <article>
+      <slot />
+    </article>
+  </Section>
 </Default>

@@ -121,5 +121,16 @@ Once you have pushed your commit to the repository, your changes will be visible
 The requirements for creating an issue goes back to the feedback section included in the Terms of Use. Since most of these projects are hosted on GitHub, you should follow their terms of use and guidelines when you are using their website. We do not have any ownership over GitHub, so you should follow their terms and conditions when you have an account over there. Our guidelines still apply when you contribute to our TTGit projects.
 
 ## Section 6: Company Disclaimer
-
 The TTNRT Corporation logo, along with "_mytt_" and the "_The future is now_" slogan are the trademarks of TTNRT Corporation. Other things such as company names, logos and any other material that is mentioned on this website are the property of their respective owners. No copyright infringement should be intended when they are shown on our website!
+
+## Section 7: Refunds
+When you make a purchase through our Stripe E-converse platform, your card will be charged the exact amount of money that we want from you, whether it be a subscription or a donation payment. Under Stripe's terms of service, any and all refunds should be sent to us directly, but will vary depending on the type of purchase that you're looking for. Purchase dates plays a big role in processing refunds, and some payments may be erased from the system at any time, meaning that we wouldn't be able to process the refund for you. If you are going to request refund, you must include the required information below, if applicable.
+
+- Your name (if available).
+- Your email address (if available).
+- The amount of money that you sent to us.
+- The transaction ID.
+- The amount of money that you want to take back from us.
+- Your reason behind making the refund request (please be specific and reasonable).
+
+Should you not have the following information that is listed above, we will not be able to process the refund for you. Note that the timing in between you sending the request to us may vary depending on how long it takes for us to respond to you. That said, we recommend that you send your request on our Discord server instead of using our support email!

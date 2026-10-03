@@ -31,8 +31,8 @@
   "devDependencies": {
     "@commitlint/cli": "^21.2.3",
     "@commitlint/config-conventional": "^21.2.3",
-    "@types/node": "^26.6.3",
-    "daisyui": "^5.7.46",
+    "@types/node": "^26.6.4",
+    "daisyui": "^5.7.47",
     "husky": "^9.1.7",
     "prettier": "^3.9.9",
     "prettier-plugin-astro": "^1.1.0"

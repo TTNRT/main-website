@@ -197,16 +197,16 @@ export const Projects: Service_groups[] = [
     name: "Documentation Website",
     description: "Our documentation website that has all of the information that you need to know!",
     icon: "fa6-solid--book",
-    alert: null,
+    alert: "We are currently working on how we will be allowing page edits through the GitHub repository into the GitBook website! Please bear with us as we try to sort all of this stuff out!",
     sections: [
       {
         title: "How it works",
         content: "Ever wonder how our documentation website works? Let us explain that for you!",
         cards: [
           {
-            title: "Uses the AstroJS framework and the Starlight theme",
-            content: "We prefer to use this framework more then anything! It's the perfect website framework that you would want for making content-driven websites!",
-            icon: "simple-icons--astro"
+            title: "Uses the GitBook Service",
+            content: "We prefer to use this documentation service more then anything! It's the perfect documentation service that you would want to use!",
+            icon: "simple-icons--gitbook"
           },
           {
             title: "Everything you need is all on it!",
@@ -311,6 +311,6 @@ export const Website_Icons: Icon_Stylesheets[] = [
   },
   {
     name: "simple-icons",
-    data: ["discord", "github", "reddit", "gitea", "bluesky", "huggingface", "astro", "openid", "mastodon", "googlegemini", "liberapay"]
+    data: ["discord", "github", "reddit", "gitea", "bluesky", "huggingface", "astro", "openid", "mastodon", "googlegemini", "liberapay", "gitbook"]
   }
 ]

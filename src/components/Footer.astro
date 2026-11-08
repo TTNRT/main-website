@@ -15,7 +15,7 @@ import {Socials, Links} from "../data/scripts/database"
     <div class="flex grid-flow-col gap-4">
       {Socials.map((item) => (
         <div>
-          <a class="text-xl" href={item.link} target="_blank" title={item.title} rel="me">
+          <a class="text-xl" href={item.link} target="_blank" title={item.title} rel="me" aria-label={item.title}>
             <span class={`iconify ${item.icon}`}></span>
           </a>
         </div>

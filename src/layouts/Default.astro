@@ -43,7 +43,7 @@ import "../styles/app.css"
     <Footer />
     <script>
       import {Allowed_Websites} from "../data/scripts/database"
-      import {Create, Control} from "../data/scripts/helpers"
+      import {Create, Control, Fetch, Other} from "../data/scripts/helpers"
       if (document !== undefined) {
         document.addEventListener("DOMContentLoaded", function () {
           switch (document.readyState) {
@@ -52,6 +52,9 @@ import "../styles/app.css"
             case "loading":
               setTimeout(function () {
                 document.querySelector("#page_loader")?.setAttribute("style", "opacity: 0; visibility: hidden;")
+                Fetch.AccessibilitySettings()
+                Create.AccessibilityWidget()
+                Other.ApplyAccessibility()
               }, 500)
               break
             default:
@@ -63,7 +66,7 @@ import "../styles/app.css"
               const url_name = this.hostname
               if (url_name && !Allowed_Websites.includes(url_name)) {
                 const full_link = link.getAttribute("href")?.toString()
-                const element_id = "#exit_warning"
+                const element_id = "exit_warning"
                 const dialog_element = document.getElementById(element_id)
                 const confirmMsg = `
                     <p class="text-base/loose">
@@ -74,7 +77,7 @@ import "../styles/app.css"
                     Are sure that you want to proceed with this action?
                     </p>
                     <br />
-                    <div class="modal-action justify-around">
+                    <div>
                     <form method="dialog" class="flex-items">
                     <button type="button" class="btn btn-success" id="allow_site"><span aria-hidden="true" class="iconify fa6-solid--circle-check h-6 w-6 shrink-0 stroke-current m r-1"></span>Let's do this!</button>
                     <button type="button" class="btn btn-error" id="return_site"><span aria-hidden="true" class="iconify fa6-solid--circle-xmark h-6 w-6 shrink-0 stroke-current m r-1"></span>Nevermind, I don't want to leave!</button>

@@ -67,3 +67,9 @@ export interface UserProfile_Data {
   }
   created_since: string | null
 }
+export interface AccessibilitySettings_Types {
+  no_motion: boolean
+  text_size: string
+  color_invert: boolean
+  no_color: boolean
+}

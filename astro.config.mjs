@@ -2,15 +2,15 @@
 import {defineConfig} from "astro/config"
 import tailwindcss from "@tailwindcss/vite"
 import mdx from "@astrojs/mdx"
-import {loadEnv} from "vite"
+import { loadEnv } from 'vite'
 
-const {PORT} = loadEnv("", process.cwd(), "")
+const {SITE_DOMAIN, PORT, ALL_HOSTS} = loadEnv(process.env.NODE_ENV || 'development', process.cwd(), '')
 
 export default defineConfig({
-  site: import.meta.env.PROD ? "https://ttnrtsite.me" : `http://localhost:${Number(PORT) || 8000}`,
+  site: String(SITE_DOMAIN),
   server: {
-    port: Number(PORT) || 8000,
-    host: true
+    port: Number(PORT),
+    host: Boolean(ALL_HOSTS)
   },
   output: "static",
   trailingSlash: "never",

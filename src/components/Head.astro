@@ -10,13 +10,13 @@ const {title, description} = Astro.props
 
 <head>
   <title>{title}</title>
-  <meta name="og:title" content={title} />
-  <meta name="og:site_name" content="TTNRT Corporation" />
-  <meta name="og:description" content={description} />
-  <meta name="og:author" content="TTNRT Corporation" />
-  <meta name="og:keywords" content="website, TTNRT, software, TTNRT Corporation, new, technology, tech" />
-  <meta name="og:url" content={`${import.meta.env.SITE}${Astro.url.pathname}`} />
-  <meta property="og:type" content="website" />
+  <meta name="title" content={title} />
+  <meta name="site_name" content="TTNRT Corporation" />
+  <meta name="description" content={description} />
+  <meta name="author" content="TTNRT Corporation" />
+  <meta name="keywords" content="website, TTNRT, software, TTNRT Corporation, new, technology, tech" />
+  <meta name="url" content={`${import.meta.env.SITE}${Astro.url.pathname}`} />
+  <meta property="type" content="website" />
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/x-icon" href={Logo.src} />

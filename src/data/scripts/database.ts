@@ -90,12 +90,6 @@ export const LogoHistory: Logo_groups[] = [
 ]
 export const Links: Link_groups[] = [
   {
-    name: "documentation",
-    title: "Documentation",
-    icon: null,
-    link: "https://docs.ttnrtsite.me"
-  },
-  {
     name: "service_status",
     title: "Service Statistics",
     icon: null,
@@ -193,51 +187,6 @@ export const Services: Service_groups[] = [
 export const Projects: Service_groups[] = [
   {
     id: 1,
-    slug: "docswebsite",
-    name: "Documentation Website",
-    description: "Our documentation website that has all of the information that you need to know!",
-    icon: "fa6-solid--book",
-    alert: "We are currently working on how we will be allowing page edits through the GitHub repository into the GitBook website! Please bear with us as we try to sort all of this stuff out!",
-    sections: [
-      {
-        title: "How it works",
-        content: "Ever wonder how our documentation website works? Let us explain that for you!",
-        cards: [
-          {
-            title: "Uses the GitBook Service",
-            content: "We prefer to use this documentation service more then anything! It's the perfect documentation service that you would want to use!",
-            icon: "simple-icons--gitbook"
-          },
-          {
-            title: "Everything you need is all on it!",
-            content: "All of the information that you might need to know is all on the website!",
-            icon: "fa6-solid--circle-check"
-          },
-          {
-            title: "Fully Open-Source",
-            content: "Our documentation website is available for you to view on our GitHub organization page, meaning that you can view the source code of the entire website for free!",
-            icon: "simple-icons--github"
-          }
-        ]
-      }
-    ],
-    links: [
-      {
-        title: "View the website",
-        content: "Click here if you want to check out the website and see how it works! Let us know on what you think or like about it!",
-        icon: "fa6-solid--arrow-pointer",
-        url: "https://docs.ttnrtsite.me"
-      },
-      {
-        title: "View the source code",
-        content: "Click here if you want to check out the source code and see how it works! Let us know on what you think or like about it!",
-        icon: "simple-icons--github",
-        url: "https://github.com/TTNRT/docswebsite"
-      }
-    ]
-  },
-  {
-    id: 2,
     slug: "ai-model",
     name: "Assist AI Gemma Model",
     description: "Our custom-made Gemma model that has the power to run on any machine that you can think of!",
@@ -280,8 +229,6 @@ export const Allowed_Websites: Link_Data[] = [
   "my.ttnrtsite.me",
   "git.ttnrtsite.me",
   "status.ttnrtsite.me",
-  "docs.ttnrtsite.me",
-  "pay.ttnrtsite.me",
   "localhost"
 ]
 export const Website_Icons: Icon_Stylesheets[] = [
@@ -306,7 +253,8 @@ export const Website_Icons: Icon_Stylesheets[] = [
       "circle-xmark",
       "book",
       "robot",
-      "envelope"
+      "envelope",
+      "universal-access"
     ]
   },
   {

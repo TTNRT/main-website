@@ -13,3 +13,6 @@ compatibility_flags = [
 
 [assets]
 directory = "./dist"
+
+[vars]
+SITE_DOMAIN = "https://ttnrtsite.me"

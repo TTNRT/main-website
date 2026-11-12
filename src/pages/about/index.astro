@@ -35,7 +35,7 @@ import Section from "../../components/Section.astro"
       {LogoHistory.flatMap((item) => (
         <Card title={item.title} icon={null} link={null}>
           <h2>What it looks like</h2>
-          <Image src={item.image} width={64} height={64} alt={`logo${item.id}`} />
+          <Image src={item.image} width={64} height={64} alt={`logo${item.id}`} loading="eager" fetchpriority="high" />
           <h2>Timeline</h2>
           <ul class="list-none p-0">
             <li>Created since: {item.started_on}</li>

@@ -48,7 +48,7 @@ import Section from '../components/Section.astro'
       {Partners.length > 0 ? (
         Partners.flatMap((item) => (
           <Card title={item.name} icon={null} link={item.website_link}>
-            <Image src={item.logo} width={128} height={128} alt="partner_logo" />
+            <Image src={item.logo} width={128} height={128} alt="partner_logo" loading="eager" fetchpriority="high" />
             <p>Been a partner with TTNRT Corporation since {item.date_since} and still is today!</p>
           </Card>
         ))

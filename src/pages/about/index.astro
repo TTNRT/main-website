@@ -23,27 +23,10 @@ import Section from "../../components/Section.astro"
     </ul>
   </Section>
   <Section>
-    <h2>Introduction</h2>
-    <Alert type="info">
-      <p>This section is under construction! Check back later when we update it!</p>
-    </Alert>
-  </Section>
-  <Section>
-    <h2>Logo evolution</h2>
-    <p>The history of our somewhat interesting logo</p>
-    <div class="grid-small">
-      {LogoHistory.flatMap((item) => (
-        <Card title={item.title} icon={null} link={null}>
-          <h2>What it looks like</h2>
-          <Image src={item.image} width={64} height={64} alt={`logo${item.id}`} loading="eager" fetchpriority="high" />
-          <h2>Timeline</h2>
-          <ul class="list-none p-0">
-            <li>Created since: {item.started_on}</li>
-            <li>Been used until: {item.until_now}</li>
-          </ul>
-        </Card>
-      ))}
-    </div>
+    <h2>Introduction About Us</h2>
+    <ul>
+      <li><a href="/about/introduction/website-designing">How Did We Create This Website?</a></li>
+    </ul>
   </Section>
   <Section>
     <h2>Donate</h2>
@@ -80,7 +63,7 @@ import Section from "../../components/Section.astro"
         </li>
         <li>
           We will <strong>never sell or give out</strong> any transactions that you make, even if it is just for fun or for the use of jokes. Refunds are provided by their policy agreements,
-          though you should consider contacting our support team if you would like to refund the donation that you made.
+          though you should consider contacting our support team if you would like to refund the donation that you made. For more information about our "Refunding Policy", please refer to <a href="/about/polices/terms-of-service#section-7-refunds" class="underline">this page</a> for more information!
         </li>
         <li>
           Additionally, some countries that have their own money currency might not be allowed to donate to us. This is protect our company and to safe guard our users when they are making

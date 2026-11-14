@@ -17,7 +17,7 @@ import "../styles/app.css"
 <!doctype html>
 <html lang="en" class="scrollbar-thin scrollbar-thumb-blue-600 max-h scroll-smooth">
   <Head title={title} description={description} />
-  <body class="flex flex-col min-h-screen">
+  <body class="flex flex-col min-h-screen bg-linear-to-tr from-blue-800 to-indigo-800">
     {import.meta.env.MODE === "development" && (
       <div class="*:border-0 *:rounded-none *:shadow-none">
         <Alert type="danger">
@@ -30,7 +30,7 @@ import "../styles/app.css"
     </noscript>
     <Pageloader />
     <Navbar />
-    <main class="grow pr-[0.65em] pl-[0.65em]">
+    <main class="grow mx-auto w-full max-w-6xl px-4 pb-12 pt-4 sm:px-6 lg:px-8">
       {banner === true && (
         <Section>
           <h1>{title}</h1>
@@ -61,6 +61,18 @@ import "../styles/app.css"
               console.error("Failed to load the page! Sorry about that!")
               break
           }
+          document.querySelectorAll<HTMLButtonElement>("button[data-action]").forEach(function(button) {
+            button.addEventListener("click", function(event) {
+              const actionType = this.getAttribute("data-action")
+              switch (actionType) {
+                case "open_contact_form":
+                  Create.ContactFormDialog()
+                  break
+                default:
+                  break
+              }
+            })
+          })
           document.querySelectorAll("a").forEach(function (link) {
             link.addEventListener("click", function (event) {
               const url_name = this.hostname
@@ -80,7 +92,7 @@ import "../styles/app.css"
                     <div>
                     <form method="dialog" class="flex-items">
                     <button type="button" class="btn btn-success" id="allow_site"><span aria-hidden="true" class="iconify fa6-solid--circle-check h-6 w-6 shrink-0 stroke-current m r-1"></span>Let's do this!</button>
-                    <button type="button" class="btn btn-error" id="return_site"><span aria-hidden="true" class="iconify fa6-solid--circle-xmark h-6 w-6 shrink-0 stroke-current m r-1"></span>Nevermind, I don't want to leave!</button>
+                    <button type="button" class="btn btn-error" id="return_site"><span aria-hidden="true" class="iconify fa6-solid--circle-xmark h-6 w-6 shrink-0 stroke-current m r-1"></span>Never mind!</button>
                     </form>
                     </div>
                     `

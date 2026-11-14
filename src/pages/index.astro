@@ -9,7 +9,7 @@ import Section from '../components/Section.astro'
 <Default title="Home" description="Welcome home. This isn't your home. It's everyone's home." banner={true}>
   <Section>
     <h1>Our services</h1>
-    <p>We provide many services. Here's a list of what we offer!</p>
+    <p>We provide many services that we think you might be interested in using! Here's a list of what we offer!</p>
     <div class="grid-small">
       {Services.length > 0 ? (
         Services.flatMap((item) => (
@@ -24,7 +24,7 @@ import Section from '../components/Section.astro'
   </Section>
   <Section>
     <h1>Our sister projects</h1>
-    <p>We provide a list of our open-source projects! Here's what we have to offer!</p>
+    <p>We provide a list of our open-source projects, which involves creating your contributions as well! Here's what we have to offer!</p>
     <div class="grid-small">
       {Projects.length > 0 ? (
         Projects.flatMap((item) => (

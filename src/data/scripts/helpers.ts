@@ -49,7 +49,7 @@ export class Create {
     const bodyEl = document.body
     const buttonEl = document.createElement("button")
     buttonEl.setAttribute("id", "accessibility_btn")
-    buttonEl.setAttribute("class", "fixed z-50 bottom-6 right-6 h-13 w-13 ring-1 ring-sky-500 transition duration-[0.3s] hover:ring-2 hover:ring-sky-300 rounded-full shadow-md bg-2xl bg-blue-500 cursor-pointer text-white items-center justify-center flex")
+    buttonEl.setAttribute("class", "fixed z-50 bottom-6 right-6 h-13 w-13 ring-1 ring-sky-500 transition duration-[0.3s] hover:ring-2 hover:ring-sky-300 shadow-md bg-2xl bg-blue-500 cursor-pointer text-white items-center justify-center flex")
     buttonEl.setAttribute("aria-label", "Accessibility Settings")
     buttonEl.title = "Accessibility Settings"
     buttonEl.innerHTML = `<span class="iconify fa6-solid--universal-access text-2xl"></span>`
@@ -59,10 +59,10 @@ export class Create {
       const dialog_element = document.getElementById(element_id)
       const settingsBody = `
         <form method="dialog" class="flex flex-col gap-[0.5em]" id="settings">
-            <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-full border p-4 mb-1">
+            <fieldset class="fieldset bg-base-200 border-base-300 w-full border p-4 mb-1">
               <legend class="fieldset-legend">Vision</legend>
               <label class="label" for="vision_text_size">Text Size</label>
-              <select class="select" id="vision_text_size" name="vision_text_size">
+              <select class="select w-full" id="vision_text_size" name="vision_text_size">
                 <option disabled selected value="none">Select your text size</option>
                 <option value="extra_large" ${getSettings.text_size === "extra_large" ? `selected` : ``}>Extra Large</option>
                 <option value="large" ${getSettings.text_size === "large" ? `selected` : ``}>Large</option>
@@ -107,6 +107,12 @@ export class Create {
       event.preventDefault()
     })
   }
+  static ContactFormDialog() {
+    const element_id = "contactus_dialog"
+    const dialog_element = document.getElementById(element_id)
+    const formBody = ``
+    this.Dialog(element_id, "Contact us", formBody)
+  }
 }
 export class Other {
   static ApplyAccessibility() {
@@ -119,8 +125,8 @@ export class Other {
       ${getSettings.text_size === "large" ? `* {font-size: var(--text-xl) !important; line-height: var(--text-xl--line-height) !important;}`: ``}
       ${getSettings.text_size === "medium" ? `* {font-size: var(--text-lg) !important; line-height: var(--text-lg--line-height) !important;}`: ``}
       ${getSettings.text_size === "small" ? `* {font-size: var(--text-sm) !important; line-height: var(--text-sm--line-height) !important;}`: ``}
-      ${getSettings.no_color ? `header, main, footer, dialog, section {filter: grayscale(100%) !important;} #accessibility_btn {filter: grayscale(100%) !important;}`: ``}
-      ${getSettings.color_invert ? `header, main, footer, dialog {filter: invert(100%) !important;} #accessibility_btn {filter: invert(100%) !important;}`: ``}
+      ${getSettings.no_color ? `header, main, footer, dialog, section {filter: grayscale(100%) !important;} #accessibility_btn {filter: grayscale(100%) !important;} body {background-image: none !important;}`: ``}
+      ${getSettings.color_invert ? `header, main, footer, dialog {filter: invert(100%) !important;} #accessibility_btn {filter: invert(100%) !important;} body {background-image: none !important;}`: ``}
     `
     styleElement.innerHTML = styleSheetData
     headElement?.appendChild(styleElement)

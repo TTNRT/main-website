@@ -7,15 +7,15 @@ const Items = [
 ]
 ---
 
-<header class="pr-[0.65em] pl-[0.65em] mb-[0.65em] mt-[0.65em]">
-  <nav class="navbar bg-base-300 shadow-sm max-[1000px]:block pl-[10%] pr-[10%] max-[1000px]:pl-[0.5em] max-[1000px]:pr-[0.5em] flex flex-row justify-between rounded-md">
+<header>
+  <nav class="navbar bg-base-300 shadow-sm max-[1000px]:block pl-[3%] pr-[3%] max-[1000px]:pl-[0.5em] max-[1000px]:pr-[0.5em] flex flex-row justify-between">
     <div class="flex flex-row">
-      <a href="/" class="flex flex-row content-center items-center flex-wrap max-[1000px]:w-full max-[1000px]:content-between">
-        <Image src={import("../data/images/logos/ttnrtlogo_v3.png")} alt="Site logo" class="w-full h-full max-w-[40px] max-h-[40px] rounded-sm mr-[0.35em] block" loading="eager" fetchpriority="high" />
+      <a href="/" class="flex flex-row content-center items-center flex-wrap max-[1000px]:w-full max-[1000px]:justify-center">
+        <Image src={import("../data/images/logos/ttnrtlogo_v3.png")} alt="Site logo" class="w-full h-full max-w-10 max-h-10 mr-[0.35em] block" loading="eager" fetchpriority="high" />
         <span>TTNRT Corporation</span>
       </a>
     </div>
-    <div class="flex-none max-[1000px]:flex max-[1000px]:items-baseline max-[1000px]:flex-col gap-0">
+    <div class="flex flex-none max-[1000px]:flex max-[1000px]:items-baseline max-[1000px]:flex-col gap-0">
       <ul class="menu menu-horizontal px-1 max-[1000px]:menu-vertical max-[1000px]:w-full">
         {Items.flatMap((item) => (
           <li>
@@ -25,6 +25,9 @@ const Items = [
           </li>
         ))}
       </ul>
+    </div>
+    <div>
+      <button class="btn btn-info max-[1000px]:w-full" data-action="open_contact_form">Contact Us!</button>
     </div>
   </nav>
 </header>
